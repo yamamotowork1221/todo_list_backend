@@ -10,6 +10,8 @@ const app: Application = express();
 const frontendUrl = env.FRONTEND_URL;
 const sessionSecret = env.SESSION_SECRET;
 
+app.set("trust proxy", 1);
+
 app.use(
     cors({
         origin: frontendUrl,
