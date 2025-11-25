@@ -11,6 +11,13 @@ const frontendUrl = env.FRONTEND_URL;
 const sessionSecret = env.SESSION_SECRET;
 
 app.use(
+    cors({
+        origin: frontendUrl,
+        methods: ['POST', 'GET', 'DELETE', 'PUT', "OPTIONS"],
+        allowedHeaders: ['Content-Type', "Authorization"],
+        credentials: true,
+    }),
+
     session({
         secret: sessionSecret,
         resave: false,
